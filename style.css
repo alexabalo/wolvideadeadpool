@@ -1,0 +1,150 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family:'rogue-hero-font';
+    src: url(./font/rogue-hero-font/RogueHeroExpanded-8MM9M.otf);
+}
+
+body{
+    background-image: url(./img/fondo.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    min-height: 100vh;
+    background-color: #BC495F;
+}
+
+.game-container{
+    text-align: center;
+}
+
+h1{ color: #fff;
+    
+    font-family:'rogue-hero-font';
+    margin-bottom: 1rem;
+}
+
+.board {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 5px;
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto 20px auto;
+  }
+
+  .cell {
+    background: #fff;
+    border: 2px solid #000;
+    height: 100px;
+    width: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+    cursor: pointer;
+    transition: background 0.3s;
+    border-radius: 6px;
+  }
+
+/*es para que la casilla ocupada no se pueda volver a utilizar*/
+
+.cell:hover{
+    background: #f0f0f0;
+}
+
+.cell.taken{
+    cursor: not-allowed
+}
+
+button{
+    border-radius: 6px;
+    padding: 1rem;
+    border: none;
+
+
+}
+
+button:hover {
+    background-color: #F0D227;
+    color: #000;
+    
+  }
+
+
+  /*clases para las caras*/
+  .character-face{
+    width: 100%;
+    height: auto;
+    max-width: 80px;/* Ajusta según el tamaño deseado */
+    max-height: 80px;
+    object-fit: contain; /* Asegura que la imagen se ajuste bien */
+  }
+
+.character-face{
+    animation: pop 0.3s ease-in-out;
+}
+
+@keyframes pop{
+    0%{
+        transform: scale(0);
+    }
+
+    100%{
+        transform: scale(1);
+    }
+}
+  
+
+#winnerModal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Para asegurarte de que esté encima de todo */
+  }
+  
+  #winnerMessage {
+    background: white;
+    padding: 20px 40px;
+    border-radius: 10px;
+    font-size: 1.5em;
+    text-align: center;
+    color: black;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  }
+  
+  #winnerModal.hidden {
+    display: none; /* Asegura que el modal no sea visible */
+}
+
+  #closeModal {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background: #ff5c5c;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  #closeModal:hover {
+    background: #ff4040;
+  }
+  
